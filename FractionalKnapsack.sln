@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FractionalKnapsack", "FractionalKnapsack\FractionalKnapsack.csproj", "{FBADF2C0-D7BC-4A6C-B50C-D96224D0523C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBADF2C0-D7BC-4A6C-B50C-D96224D0523C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBADF2C0-D7BC-4A6C-B50C-D96224D0523C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBADF2C0-D7BC-4A6C-B50C-D96224D0523C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBADF2C0-D7BC-4A6C-B50C-D96224D0523C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D9B4E412-199C-4A0E-80E0-AD74A72447FB}
+	EndGlobalSection
+EndGlobal
