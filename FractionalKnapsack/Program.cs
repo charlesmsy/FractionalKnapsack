@@ -12,40 +12,26 @@ namespace FractionalKnapsack
 
             items.Add(new Item
             {
+                Name = "Gold",
+                Weight = 10,
+                Value = 60
+            });
+
+            items.Add(new Item
+            {
                 Name = "Silver",
-                Weight = 5,
+                Weight = 20,
                 Value = 100
             });
 
             items.Add(new Item
             {
-                Name = "Gold",
-                Weight = 2,
-                Value = 70
+                Name = "Bronze",
+                Weight = 30,
+                Value = 120
             });
 
-            items.Add(new Item
-            {
-                Name = "Plate",
-                Weight = 8,
-                Value = 50
-            });
-
-            items.Add(new Item
-            {
-                Name = "Diamond A",
-                Weight = 15,
-                Value = 150
-            });
-
-            items.Add(new Item
-            {
-                Name = "Diamond B",
-                Weight = 4,
-                Value = 50
-            });
-
-            Console.WriteLine(FractionalKnapsackMaxProfit(items, 25));
+            Console.WriteLine("Profit of ${0}.", FractionalKnapsackMaxProfit(items, 50));
 
             Console.ReadKey();
         }
@@ -54,24 +40,36 @@ namespace FractionalKnapsack
         {
             var knapsack = new List<Item>();
 
-            //Order Items
+            //Order Items by there valubale
             var orderedItems = items.OrderByDescending(currentItem => currentItem.Valuable);
 
-            foreach(var item in orderedItems)
+            foreach (var item in orderedItems)
             {
                 if (knapsackCapacity == 0)
-                    break; //Se não cabe mais nada, saio
+                    break;
 
                 if (item.Weight > knapsackCapacity)
                 {
-                    item.Value = knapsackCapacity * item.Value / item.Weight; 
-                    item.Weight = knapsackCapacity; //Levo de item o quanto cabe na mochila
+                    item.Value = knapsackCapacity * item.Value / item.Weight;
+                    item.Weight = knapsackCapacity;
                 }
+                Console.WriteLine("Adding {0} weighing {1} with the value of {2} with a Value/Weight ratio of {3}.", item.Name, item.Weight, item.Value, item.Valuable);
                 knapsack.Add(item);
                 knapsackCapacity -= item.Weight;
+                Console.WriteLine("Knapsack capacity now {0} .", knapsackCapacity);
             }
 
             return knapsack.Sum(currentItem => currentItem.Value);
         }
+
+        public class Item
+        {
+            public string Name { get; set; }
+            public decimal Weight { get; set; }
+            public decimal Value { get; set; }
+            public decimal Valuable { get => Value / Weight; }
+        }
+
     }
 }
+
