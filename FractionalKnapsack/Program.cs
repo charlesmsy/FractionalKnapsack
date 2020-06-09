@@ -8,47 +8,47 @@ namespace FractionalKnapsack
     {
         static void Main(string[] args)
         {
-            var items = new List<Item>();
+            var items = new List<Item>(); //list of precious metals
 
             items.Add(new Item
             {
-                Name = "Gold",
+                Name = "Gold", // aka A
                 Weight = 10,
                 Value = 60
             });
 
             items.Add(new Item
             {
-                Name = "Silver",
+                Name = "Silver", // aka B
                 Weight = 20,
                 Value = 100
             });
 
             items.Add(new Item
             {
-                Name = "Bronze",
+                Name = "Bronze",// aka C
                 Weight = 30,
                 Value = 120
             });
 
-            Console.WriteLine("Profit of ${0}.", FractionalKnapsackMaxProfit(items, 50));
+            Console.WriteLine("Profit of ${0}.", FractionalKnapsackMaxProfit(items, 50)); //passing itemlist and max knapsack capcity 
 
             Console.ReadKey();
         }
 
         static decimal FractionalKnapsackMaxProfit(IEnumerable<Item> items, decimal knapsackCapacity)
         {
-            var knapsack = new List<Item>();
+            var knapsack = new List<Item>(); // create an empty knapsack
 
             //Order Items by there valubale
             var orderedItems = items.OrderByDescending(currentItem => currentItem.Valuable);
 
             foreach (var item in orderedItems)
             {
-                if (knapsackCapacity == 0)
+                if (knapsackCapacity == 0) //do nothing if knapsackcapacity is 0
                     break;
 
-                if (item.Weight > knapsackCapacity)
+                if (item.Weight > knapsackCapacity) //the fractional part of this program
                 {
                     item.Value = knapsackCapacity * item.Value / item.Weight;
                     item.Weight = knapsackCapacity;
